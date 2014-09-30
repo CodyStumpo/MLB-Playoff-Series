@@ -11,12 +11,16 @@ NLRunsPerGame = 9600/(162*15); #3.95
 parkFactor=c(96,98);
 parks = c(1,1,2,2,1);
 sorder=c(1,2,3,4,1);
-defense = c(-12,30)/162;
-starters = matrix (c(50,80,85,110,198/27, 202/32, 152/26, 186/32,75,90,95,105,227/32,203/33,107/19,6), nrow=4);#put t1 era 1-4, t1 ip 5-8.
-# columns are ERA-, IP, for team 1, then for team 2. Rows are starters 1-4
-#LAD = Kershaw, Greinke, Ryu, Haren
+defense = c(9,46)/162;
+starters = matrix (c(50,80,85,110,
+                     198/27, 202/32, 152/26, 186/32,
+                     75,90,95,105,227/32,
+                     203/33,107/19,6), nrow=4);#put t1 era 1-4, t1 ip 5-8.
+# columns (in result, transposed from entry) are ERA-, IP, for team 1, then for team 2. Rows are starters 1-4
+#LAD = Kershaw*, Greinke, Ryu*, Haren
 #STL = Wainwright, Lynn, Wacha, Lackey
-starterHand = matrix(c('L','R','L','R','R','R','R','R'), nrow=4);#put t1 starters 1-4, t2 5-8
+starterHand = matrix(c('L','R','L','R',
+                       'R','R','R','R'), nrow=4);#put t1 starters 1-4, t2 5-8
 #columns are team 1, team 2. rows are starters 1-4
 runs2=parks;
 for(i in 1:length(runs2)) runs2[i] <- parkFactor[parks[i]]/100 * (
@@ -66,3 +70,4 @@ endstate = transitions %*% transitions %*% transitions %*% transitions %*% trans
 #expm package may have %^%
 
 tail(endstate['0-0',],7)
+endstate['0-0','3-0']  + endstate['0-0','3-1']+ endstate['0-0','3-2']    
