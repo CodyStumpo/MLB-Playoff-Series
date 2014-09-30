@@ -7,7 +7,7 @@ Calculate odds for baseball playoff series
 
 
 
-## Results
+## Results (probabilities of each possible series outcome)
 
 ### LAD-STL
 | 3-0   |  0-3   |  3-1    |  1-3   |    3-2  |    2-3 |
