@@ -15,14 +15,14 @@ defense = c(5,50)/162;
 #should I guess add baserunning, but such a small impact
 starters = matrix (c(109,117,89,114,
                      213/34, 175/31, 121/20, 117/24,
-                     95,102,90,93,
-                     141/25,187/30,227/34,181/30), nrow=4);
+                     102,95,90,93,
+                     187/30,141/25,227/34,181/30), nrow=4);
 #put t1 era 1-4, t1 ip 5-8.
 # columns (in result, transposed from entry) are ERA-, IP, for team 1, then for team 2. Rows are starters 1-4
 #LAA = Weaver, Wilson*, Shoemaker, Santiago*
-#KCR = Duffy*, Vargas, Shields, Ventura
+#KCR = Vargas, Duffy*,  Shields, Ventura
 starterHand = matrix(c('R','L','R','L',
-                       'L','R','R','R'), nrow=4);#put t1 starters 1-4, t2 5-8
+                       'R','L','R','R'), nrow=4);#put t1 starters 1-4, t2 5-8
 #columns are team 1, team 2. rows are starters 1-4
 runs2=parks;
 for(i in 1:length(runs2)) runs2[i] <- parkFactor[parks[i]]/100 * (
