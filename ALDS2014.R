@@ -7,7 +7,7 @@ bpERAminus = c(87,108);
 wRCplus = c(104,111);
 wRCplusL = c(106,120);
 wRCplusR = c(104,108);
-NLRunsPerGame = 10161/(162*15); #4.18
+ALRunsPerGame = 10161/(162*15); #4.18
 parkFactor=c(102,102);
 parks = c(1,1,2,2,1);
 sorder=c(1,2,3,4,1);
@@ -25,14 +25,14 @@ starterHand = matrix(c('R','L','R','R',
 #columns are team 1, team 2. rows are starters 1-4
 runs2=parks;
 for(i in 1:length(runs2)) runs2[i] <- parkFactor[parks[i]]/100 * (
-  NLRunsPerGame * (
+  ALRunsPerGame * (
   (starters[sorder[i],1]/100 * (if (starterHand[sorder[i],1]=='L') wRCplusL[2] else wRCplusR[2])/100 * starters[sorder[i],2]/8.5) 
 + (bpERAminus[1]/100 * wRCplus[2]/100 * (8.5-starters[sorder[i],2])/8.5)
                                          ) - defense[1]);
 
 runs1=runs2;
 for(i in 1:length(runs1)) runs1[i] <- parkFactor[parks[i]]/100 * (
-  NLRunsPerGame * (
+  ALRunsPerGame * (
     (starters[sorder[i],3]/100 * (if (starterHand[sorder[i],2]=='L') wRCplusL[1] else wRCplusR[1])/100 * starters[sorder[i],4]/8.5) 
     + (bpERAminus[2]/100 * wRCplus[1]/100 * (8.5-starters[sorder[i],4])/8.5)
   ) - defense[2]);
