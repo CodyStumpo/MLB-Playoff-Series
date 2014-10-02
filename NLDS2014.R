@@ -12,6 +12,7 @@ parkFactor=c(96,98);
 parks = c(1,1,2,2,1);
 sorder=c(1,2,3,4,1);
 defense = c(9,46)/162;
+baserunning=c(2,-11)/162
 starters = matrix (c(50,80,85,110,
                      198/27, 202/32, 152/26, 186/32,
                      75,90,117,105,
@@ -28,14 +29,14 @@ for(i in 1:length(runs2)) runs2[i] <- parkFactor[parks[i]]/100 * (
   NLRunsPerGame * (
   (starters[sorder[i],1]/100 * (if (starterHand[sorder[i],1]=='L') wRCplusL[2] else wRCplusR[2])/100 * starters[sorder[i],2]/8.5) 
 + (bpERAminus[1]/100 * wRCplus[2]/100 * (8.5-starters[sorder[i],2])/8.5)
-                                         ) - defense[1]);
+                                         ) - defense[1]+baserunning[2]);
 
 runs1=runs2;
 for(i in 1:length(runs1)) runs1[i] <- parkFactor[parks[i]]/100 * (
   NLRunsPerGame * (
     (starters[sorder[i],3]/100 * (if (starterHand[sorder[i],2]=='L') wRCplusL[1] else wRCplusR[1])/100 * starters[sorder[i],4]/8.5) 
     + (bpERAminus[2]/100 * wRCplus[1]/100 * (8.5-starters[sorder[i],4])/8.5)
-  ) - defense[2]);
+  ) - defense[2]+baserunning[1]);
 
 wPct = runs1^2 / (runs1^2 + runs2^2); #chance of team1 winning each game
 
