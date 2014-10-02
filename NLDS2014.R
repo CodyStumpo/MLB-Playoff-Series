@@ -26,6 +26,7 @@ starterHand = matrix(c('L','R','L','R',
 #columns are team 1, team 2. rows are starters 1-4
 source(file="helper.R");
 
+round(wPct,2)
 round(tail(endstate['0-0',],7),2)
 round(endstate['0-0','3-0']  + endstate['0-0','3-1']+ endstate['0-0','3-2'],2) 
 

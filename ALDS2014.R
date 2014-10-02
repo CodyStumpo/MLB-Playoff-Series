@@ -12,7 +12,7 @@ parkFactor=c(102,102);
 parks = c(1,1,2,2,1);
 sorder=c(1,2,3,4,1);
 defense = c(52,-55)/162;
-baserunning=(-6,0)/162;
+baserunning=c(-6,0)/162;
 starters = matrix (c(100,96,110,102,
                      207/34, 185/31, 165/28, 186/32,
                      80,105,80,93,
@@ -26,6 +26,7 @@ starterHand = matrix(c('R','L','R','R',
 #columns are team 1, team 2. rows are starters 1-4
 source(file="helper.R");
 
+round(wPct,2)
 round(tail(endstate['0-0',],7),2)
 round(endstate['0-0','3-0']  + endstate['0-0','3-1']+ endstate['0-0','3-2'],2) 
 

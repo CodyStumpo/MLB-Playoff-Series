@@ -27,5 +27,6 @@ starterHand = matrix(c('R','R','R','R',
 
 source(file="helper.R");
 
+round(wPct,2)
 round(tail(endstate['0-0',],7),2)
 round(endstate['0-0','3-0']  + endstate['0-0','3-1']+ endstate['0-0','3-2'],2) 
