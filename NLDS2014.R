@@ -16,7 +16,7 @@ baserunning=c(2,-11)/162
 starters = matrix (c(50,80,85,110,
                      198/27, 202/32, 152/26, 186/32,
                      75,90,117,105,
-                     227/32,203/33,107/19,6, 180/31), nrow=4);#put t1 era 1-4, t1 ip 5-8.
+                     227/32,203/33, 6, 180/31), nrow=4);#put t1 era 1-4, t1 ip 5-8.
 # columns (in result, transposed from entry) are ERA-, IP, for team 1, then for team 2. Rows are starters 1-4
 #LAD = Kershaw*, Greinke, Ryu*, Haren
 #STL = Wainwright, Lynn, Lackey, Miller
