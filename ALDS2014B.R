@@ -16,20 +16,20 @@ baserunning=c(-1,1)/162;
 #should I guess add baserunning, but such a small impact
 starters = matrix (c(109,89,117, 114,93,
                      213/34, 121/20, 175/31,  (213/34)-.5, (121/20)-.5,
-                     102,111,90,93,107,
-                     187/30,202/32,227/34,181/30, (187/30)-.5), nrow=5);
+                     101,93,90,111,101,
+                     187/30,202/32,227/34,181/30, 187/30), nrow=5);
 #put t1 era 1-5, t1 ip 6-10.
 # columns (in result, transposed from entry) are ERA-, IP, for team 1, then for team 2. Rows are starters 1-4
 
 
 
-# Weaver, Shoemaker, Wilson*, Weaver  
-#  Vargas, Ventura, Shields, Guthrie?
+# LAA Weaver, Shoemaker, Wilson*, Weaver  
+#  KCR Vargas* 101, Ventura 93, Shields 90, Guthrie 111?
 #KCR - Duffy* = 95, 141/25
 #LAA - Santiago* = 114, 117/24
 #KCR - Guthrie = 111, 202/32
 starterHand = matrix(c('R','R','L','R', 'R',
-                       'R','R','R','R', 'R'), nrow=5);#put t1 starters 1-5, t2 6-10
+                       'L','R','R','R', 'L'), nrow=5);#put t1 starters 1-5, t2 6-10
 #columns are team 1, team 2. rows are starters 1-5
 source(file="helper.R");
 
