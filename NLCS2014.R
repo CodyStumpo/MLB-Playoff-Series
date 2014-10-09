@@ -15,17 +15,17 @@ defense = c(46,-1)/162;
 baserunning=c(-11,-2)/162;
 starters = matrix (c(75,90,97,105,
                      227/32,203/33, 198/31, 180/31, 
-                     106,112,86,102,
-                     202/32,184/32,217/33,189/31), nrow=4);
+                     86,106, 102, 112,
+                     217/33,202/32,189/31,184/32), nrow=4);
+                     
 #put t1 era 1-4, t1 ip 5-8.
 # columns (in result, transposed from entry) are ERA-, IP, for team 1, then for team 2. Rows are starters 1-4
 #STL = Wainwright, Lynn, Lackey, Miller
 #Had Wacha at 95, 107/19
-#SFG = Peavy, Vogelsong, Bumgarner*, Hudson
+# SFG Bumgarner*, Peavy, Hudson, Vogelsong
 
-
-starterHand = matrix(c('R','R','L','R',
-                       'R','R','R','R'), nrow=4);#put t1 starters 1-4, t2 5-8
+starterHand = matrix(c('R','R','R','R',
+                       'L','R','R','R'), nrow=4);#put t1 starters 1-4, t2 5-8
 #columns are team 1, team 2. rows are starters 1-4
 source(file="helper7.R");
 
