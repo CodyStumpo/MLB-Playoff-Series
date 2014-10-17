@@ -9,7 +9,7 @@ Calculate odds for baseball playoff series
 
 # Results (probabilities of each possible series outcome)
 
-##Divison Series
+## Divison Series
 
 ### LAD-STL
 | 3-0   |  0-3   |  3-1    |  1-3   |    3-2  |    2-3 |
@@ -42,7 +42,7 @@ Total BAL = .52
 
 Total LAA = .55
 
-##Championship Series
+## Championship Series
 
 ### BAL-KCR
 
@@ -56,6 +56,14 @@ Total BAL = .57
 
 | 4-0 |    0-4   |  4-1  |  1-4  |  4-2  |    2-4 |  4-3  |    3-4 |
 |-----|----------|-------|-------|-------|--------|-------|--------|
-|0.08 |  0.04    |  0.17 | 0.12  | 0.19  |  0.11  | 0.14  | 0.14   |
+|0.09 |  0.04    |  0.17 | 0.12  | 0.19  |  0.10  | 0.14  | 0.14   |
 
 Total STL = .59
+
+## World Series (KCR - SFG)
+
+| 4-0 |    0-4   |  4-1  |  1-4  |  4-2  |    2-4 |  4-3  |    3-4 |
+|-----|----------|-------|-------|-------|--------|-------|--------|
+|0.08 |  0.05    |  0.15 | 0.12  | 0.18  |  0.12  | 0.15  | 0.15   |
+
+Total KCR = .56
