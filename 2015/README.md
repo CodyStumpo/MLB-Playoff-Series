@@ -25,7 +25,7 @@ Total KCR = .44
 
 ## WS chances at start of playoffs
 ###AL Pennant chances at start of playoffs
-TOR 45%
-HOU 29%
-KCR 19%
-TEX 6%
+* TOR 45%
+* HOU 29%
+* KCR 19%
+* TEX 6%
