@@ -204,15 +204,16 @@ HOU = data.frame(name='HOU',
                  starter1ERAminus=94, #McHugh
                  starter1IP=204/32,
                  starter1Hand='R',
-                 starter2ERAminus=82,#McCullers 
-                 starter2IP=126/22,
-                 starter2Hand='R',
+                 starter2ERAminus=93,#Kazmir 
+                 starter2IP=183/31,
+                 starter2Hand='L',
                  starter3ERAminus=67, #Keuchel
                  starter3IP=232/33,
                  starter3Hand='L',
-                 starter4ERAminus=98, #Fiers
-                 starter4IP=175/30,
+                 starter4ERAminus=82,#McCullers 
+                 starter4IP=126/22,
                  starter4Hand='R'
+                                
 )
 
 
@@ -222,5 +223,39 @@ teams =rbind(teams, HOU)
 #Kazmir (93, 183/31, 'L') #but so bad last month probably doesn't get a start
 #McCullers(82, 126/22,'R')
 #Fiers (98, 175/30,'R')
+
+#announced plan of McHugh, Kazmir, Keuchel and then McCullers or Fiers 
+
+
+CHC = data.frame(name='CHC', 
+                 bpERAminus=88, 
+                 wRCplus=96,
+                 wRCplusL=89,
+                 wRCplusR=98,
+                 LgRunsPerGame=9996/(162*15),
+                 parkFactor=100,
+                 defense=14/162,
+                 baserunning=16/162,
+                 starter1ERAminus=80, #Lester
+                 starter1IP=205/32,
+                 starter1Hand='L',
+                 starter2ERAminus=90,#Hendricks
+                 starter2IP=180/32,
+                 starter2Hand='R',
+                 starter3ERAminus=58, #Arrietta
+                 starter3IP=229/33,
+                 starter3Hand='R',
+                 starter4ERAminus=93, #Hammel
+                 starter4IP=171/31,
+                 starter4Hand='R'
+                 
+)
+#lester (80,205/32, 'L')
+#hendricks( 90, 180/32, 'R')
+#Arrietta (58, 229/33, 'R')
+#Hammel(93, 171/31, 'R')
+
+teams =rbind(teams, CHC)
+
 
 row.names(teams) <- teams$name
