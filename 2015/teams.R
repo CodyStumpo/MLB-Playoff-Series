@@ -39,15 +39,15 @@ TOR = data.frame(name='TOR',
         starter1ERAminus=69,#Price
         starter1IP=220/32,
         starter1Hand='L',
-        starter2ERAminus=107,#Dickey
-        starter2IP=214/33,
+        starter4ERAminus=107,#Dickey
+        starter4IP=214/33,
+        starter4Hand='R',
+        starter2ERAminus=85,#Stroman
+        starter2IP=27/4,
         starter2Hand='R',
-        starter3ERAminus=85,#Stroman
-        starter3IP=27/4,
-        starter3Hand='R',
-        starter4ERAminus=104,#Estrada
-        starter4IP=170/28,
-        starter4Hand='R'
+        starter3ERAminus=104,#Estrada
+        starter3IP=170/28,
+        starter3Hand='R'
 )
       
 
@@ -66,16 +66,17 @@ TEX = data.frame(name='TEX',
                  starter2ERAminus=87, #Hamels
                  starter2IP=212/32,
                  starter2Hand='L',
-                 starter3ERAminus=110, #Lewis
-                 starter3IP=205/33,
-                 starter3Hand='R',
-                 starter4ERAminus=118, #Holland
-                 starter4IP=59/10,
-                 starter4Hand='L',
+                 starter4ERAminus=110, #Lewis
+                 starter4IP=205/33,
+                 starter4Hand='R',
+                 starter3ERAminus=95, #Holland
+                 starter3IP=79/14,
+                 starter3Hand='L',
                  starter1ERAminus=94,#Gallardo
                  starter1IP=184/33,
                  starter1Hand='R'
-)#Perez (95, 79/14, 'L')
+)#Perez (95, 79/14, 'L') in game 3
+#Holland (118, 59/10, 'L')
 
 teams =rbind(teams, TEX)
 
@@ -140,18 +141,18 @@ STL = data.frame(name='STL',
                  parkFactor=98,
                  defense=15/162,
                  baserunning=-5/162,
-                 starter1ERAminus=76, #Garcia
-                 starter1IP=130/20,
-                 starter1Hand='L',
-                 starter2ERAminus=87, # Lackey
-                 starter2IP=218/33,
-                 starter2Hand='R',
-                 starter3ERAminus=90, #Lynn
-                 starter3IP=175/31,
-                 starter3Hand='R',
-                 starter4ERAminus=96,#Wacha
-                 starter4IP=181/30,
-                 starter4Hand='L'
+                 starter2ERAminus=76, #Garcia
+                 starter2IP=130/20,
+                 starter2Hand='L',
+                 starter1ERAminus=87, # Lackey
+                 starter1IP=218/33,
+                 starter1Hand='R',
+                 starter4ERAminus=90, #Lynn
+                 starter4IP=175/31,
+                 starter4Hand='R',
+                 starter3ERAminus=96,#Wacha
+                 starter3IP=181/30,
+                 starter3Hand='L'
 )
 #Garcia (76, 130/20, 'L')
 #Lackey (87, 218/33, 'R')
