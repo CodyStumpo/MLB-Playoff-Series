@@ -1,6 +1,7 @@
-# for 2015 DS, produce run expectancy for each team against projected starter & bullpen, adjust for defense & park
+# for 2015 playoffs, produce run expectancy for each team against projected starter & bullpen, adjust for defense & park
 # compute win probability of each game using pythagorean formula
 # use Markov process to determine probabilities of endstate of series
+# Basic probability tree then to get to chances of each outcome
 # Cody Stumpo, codybass@gmail.com
 
 source(file="teams.R")
@@ -198,8 +199,8 @@ sevenGameSeries<- function(twoTeams){
 }
 
 
-fiveGameSeries(c('LAD','NYM'))
-sevenGameSeries(c('LAD','STL'))
+
+# DS & CS ODDS ------------------------------------------------------------
 
 
 TORTEX5=fiveGameSeries(c('TOR','TEX'))
@@ -217,3 +218,112 @@ TEX2WS=(1-TORTEX5[3][[1]])*((1-KCRTEX7[3][[1]])*KCRHOU5[3][[1]] + TEXHOU7[3][[1]
 
 KCR2WS=KCRHOU5[3][[1]]*( TORTEX5[3][[1]] * (1-TORKCR7[3][[1]]) + (1-TORTEX5[3][[1]])*KCRTEX7[3][[1]])#KCR2CS * (win vs TOR + win vs TEX)
 HOU2WS=(1-KCRHOU5[3][[1]])*( TORTEX5[3][[1]] * (1-TORHOU7[3][[1]]) + (1-TORTEX5[3][[1]])*(1-TEXHOU7[3][[1]]))#HOU2CS * (win vs TOR + win vs TEX)
+
+# at start of ALDS
+# TOR 46% vs. Fangraphs 32%
+# HOU 29% vs. Fangraphs 27%
+# KCR 19% vs. Fangraphs 24%
+# TEX 6% vs. Fangraphs 18%
+
+
+LADNYM5=fiveGameSeries(c('LAD','NYM'))
+STLCHC5=fiveGameSeries(c('STL','CHC'))
+
+STLLAD7=sevenGameSeries(c('STL','LAD'))
+STLNYM7 = sevenGameSeries(c('STL','NYM'))
+
+LADCHC7 = sevenGameSeries(c('LAD','CHC'))
+NYMCHC7=sevenGameSeries(c('NYM','CHC'))
+
+LAD2WS = LADNYM5[3][[1]]*(STLCHC5[3][[1]]*(1-STLLAD7[3][[1]]) + (1-STLCHC5[3][[1]])*LADCHC7[3][[1]]) #LAD2CS * (Win vs STL + WIN vs CHC)
+NYM2WS = (1-LADNYM5[3][[1]])*(STLCHC5[3][[1]]*(1-STLNYM7[3][[1]]) + (1-STLCHC5[3][[1]])*NYMCHC7[3][[1]]) #NYM2CS * (Win vs STL + WIN vs CHC)
+STL2WS = STLCHC5[3][[1]] *(LADNYM5[3][[1]]*STLLAD7[3][[1]] + (1-LADNYM5[[3]][[1]])*STLNYM7[3][[1]])  #STL2CS * (Win vs LAD + win vs NYM)
+CHC2WS = (1-STLCHC5[3][[1]]) *(LADNYM5[3][[1]]*(1-LADCHC7[3][[1]]) + (1-LADNYM5[[3]][[1]])*(1-NYMCHC7[3][[1]]))  #CHC2CS * (Win vs LAD + win vs NYM)
+
+# at start of NLDS
+# LAD 35%
+# NYM 21%
+# STL 16%
+# CHC 28%
+
+
+# WS ODDS -----------------------------------------------------------------
+
+
+
+#WS
+#AL is home team
+
+TORLAD7=sevenGameSeries(c('TOR', 'LAD'))
+TEXLAD7=sevenGameSeries(c('TEX', 'LAD'))
+HOULAD7=sevenGameSeries(c('HOU', 'LAD'))
+KCRLAD7=sevenGameSeries(c('KCR', 'LAD'))
+
+LADWS = LAD2WS*(TOR2WS*(1-TORLAD7[3][[1]])
+                +TEX2WS*(1-TEXLAD7[3][[1]])
+                +HOU2WS*(1-HOULAD7[3][[1]])
+                +KCR2WS*(1-KCRLAD7[3][[1]]))
+
+TORNYM7=sevenGameSeries(c('TOR', 'NYM'))
+TEXNYM7=sevenGameSeries(c('TEX', 'NYM'))
+HOUNYM7=sevenGameSeries(c('HOU', 'NYM'))
+KCRNYM7=sevenGameSeries(c('KCR', 'NYM'))
+
+NYMWS = NYM2WS*(TOR2WS*(1-TORNYM7[3][[1]])
+                +TEX2WS*(1-TEXNYM7[3][[1]])
+                +HOU2WS*(1-HOUNYM7[3][[1]])
+                +KCR2WS*(1-KCRNYM7[3][[1]]))
+
+TORSTL7=sevenGameSeries(c('TOR', 'STL'))
+TEXSTL7=sevenGameSeries(c('TEX', 'STL'))
+HOUSTL7=sevenGameSeries(c('HOU', 'STL'))
+KCRSTL7=sevenGameSeries(c('KCR', 'STL'))
+
+STLWS = STL2WS*(TOR2WS*(1-TORSTL7[3][[1]])
+                +TEX2WS*(1-TEXSTL7[3][[1]])
+                +HOU2WS*(1-HOUSTL7[3][[1]])
+                +KCR2WS*(1-KCRSTL7[3][[1]]))
+
+TORCHC7=sevenGameSeries(c('TOR', 'CHC'))
+TEXCHC7=sevenGameSeries(c('TEX', 'CHC'))
+HOUCHC7=sevenGameSeries(c('HOU', 'CHC'))
+KCRCHC7=sevenGameSeries(c('KCR', 'CHC'))
+
+CHCWS = CHC2WS*(TOR2WS*(1-TORCHC7[3][[1]])
+                +TEX2WS*(1-TEXCHC7[3][[1]])
+                +HOU2WS*(1-HOUCHC7[3][[1]])
+                +KCR2WS*(1-KCRCHC7[3][[1]]))
+
+TORWS=TOR2WS*(CHC2WS*(TORCHC7[3][[1]])
+              +STL2WS*(TORSTL7[3][[1]])
+              +NYM2WS*(TORNYM7[3][[1]])
+              +LAD2WS*(TORLAD7[3][[1]]))
+
+TEXWS=TEX2WS*(CHC2WS*(TEXCHC7[3][[1]])
+              +STL2WS*(TEXSTL7[3][[1]])
+              +NYM2WS*(TEXNYM7[3][[1]])
+              +LAD2WS*(TEXLAD7[3][[1]]))
+
+HOUWS=HOU2WS*(CHC2WS*(HOUCHC7[3][[1]])
+              +STL2WS*(HOUSTL7[3][[1]])
+              +NYM2WS*(HOUNYM7[3][[1]])
+              +LAD2WS*(HOULAD7[3][[1]]))
+
+KCRWS=KCR2WS*(CHC2WS*(KCRCHC7[3][[1]])
+              +STL2WS*(KCRSTL7[3][[1]])
+              +NYM2WS*(KCRNYM7[3][[1]])
+              +LAD2WS*(KCRLAD7[3][[1]]))
+
+
+# DISPLAY RESULTS ---------------------------------------------------------
+
+
+resultsgrid=data.frame(name=c('LAD','STL','CHC','NYM','TOR','TEX','KCR','HOU'), 
+                       DS=round(c(LADNYM5[3][[1]],STLCHC5[3][[1]],1-STLCHC5[3][[1]],1-LADNYM5[3][[1]],TORTEX5[3][[1]],1-TORTEX5[3][[1]],KCRHOU5[3][[1]],1-KCRHOU5[3][[1]]),2), 
+                       CS=round(c(LAD2WS,STL2WS, CHC2WS,NYM2WS, TOR2WS, TEX2WS, KCR2WS, HOU2WS),2), 
+                       WS=round(c(LADWS, STLWS, CHCWS, NYMWS, TORWS, TEXWS, KCRWS, HOUWS),2)
+                       )
+
+resultsgrid=resultsgrid[with(resultsgrid, order(-WS)), ]
+
+
